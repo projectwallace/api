@@ -1,0 +1,22 @@
+{
+  "name": "project-wallace-api",
+  "version": 2,
+  "builds": [
+    {
+      "src": "routes/*.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/analyze-css",
+      "dest": "routes/analyze-css.js",
+      "methods": ["POST"]
+    },
+    {
+      "src": "/analyze-url",
+      "dest": "routes/analyze-url.js",
+      "methods": ["GET", "POST"]
+    }
+  ]
+}
