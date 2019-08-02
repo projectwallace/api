@@ -1,6 +1,7 @@
 import analyzeCss from "@projectwallace/css-analyzer";
 import got from "got";
 import normalizeUrl from "normalize-url";
+import pkg from "../package.json";
 
 export default async (req, res) => {
   const { url } = req.query;
@@ -11,5 +12,9 @@ export default async (req, res) => {
     })}`
   );
   const stats = await analyzeCss(css);
+  res.setHeader(
+    "x-css-analyzer-version",
+    pkg.dependencies["@projectwallace/css-analyzer"]
+  );
   res.json(stats);
 };
