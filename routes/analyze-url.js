@@ -1,9 +1,10 @@
 import analyzeCss from "@projectwallace/css-analyzer";
 import got from "got";
 import normalizeUrl from "normalize-url";
+import cors from "micro-cors";
 import pkg from "../package.json";
 
-export default async (req, res) => {
+export default cors()(async (req, res) => {
   const { url } = req.query;
   const { body: css } = await got(
     `https://extract-css.now.sh/${normalizeUrl(url, {
@@ -17,4 +18,4 @@ export default async (req, res) => {
     pkg.dependencies["@projectwallace/css-analyzer"]
   );
   res.json(stats);
-};
+});
