@@ -17,6 +17,11 @@
       "src": "/analyze-url",
       "dest": "routes/analyze-url.js",
       "methods": ["GET", "POST"]
+    },
+    {
+      "src": "/get-css",
+      "dest": "routes/get-css.js",
+      "methods": ["GET"]
     }
   ]
 }
