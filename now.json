@@ -1,5 +1,6 @@
 {
   "name": "project-wallace-api",
+  "alias": "api.project-wallace.now.sh",
   "version": 2,
   "builds": [
     {
