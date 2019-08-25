@@ -10,8 +10,6 @@ const {
 process.env.AWS_ACCESS_KEY_ID = EXTRACT_CSS_S3_BUCKET_ACCESS_KEY_ID;
 process.env.AWS_SECRET_ACCESS_KEY = EXTRACT_CSS_S3_BUCKET_SECRET_ACCESS_KEY;
 
-console.log(process.env.AWS_ACCESS_KEY_ID);
-
 const storage = new s3({
   params: { Bucket: EXTRACT_CSS_S3_BUCKET_NAME }
 });
@@ -26,6 +24,7 @@ export default ({ filename, css }) => {
     .promise()
     .catch(error => {
       console.error("ERROR: S3 error");
+      console.log("access key id", process.env.AWS_ACCESS_KEY_ID);
       console.error(error);
     });
 };
