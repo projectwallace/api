@@ -21,5 +21,9 @@ export default ({ filename, css }) => {
       Body: css,
       ContentType: "text/css"
     })
-    .promise();
+    .promise()
+    .catch(error => {
+      console.error("ERROR: S3 error");
+      console.error(error);
+    });
 };
