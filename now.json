@@ -24,5 +24,11 @@
       "dest": "routes/get-css.js",
       "methods": ["GET"]
     }
-  ]
+  ],
+  "regions": ["bru1", "dub1", "lhr1", "cdg1"],
+  "env": {
+    "EXTRACT_CSS_S3_BUCKET_NAME": "@pw-extract-css-s3-bucket-name",
+    "EXTRACT_CSS_S3_BUCKET_ACCESS_KEY_ID": "@pw-extract-css-s3-bucket-access-key-id",
+    "EXTRACT_CSS_S3_BUCKET_SECRET_ACCESS_KEY": "@pw-extract-css-s3-bucket-secret-access-key"
+  }
 }
