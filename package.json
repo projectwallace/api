@@ -3,8 +3,13 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "10.x"
+  },
   "dependencies": {
     "@projectwallace/css-analyzer": "^2.6.0",
+    "aws-sdk": "^2.516.0",
+    "filenamify-url": "^2.1.0",
     "got": "^9.6.0",
     "micro-cors": "^0.1.1",
     "normalize-url": "^4.3.0"
