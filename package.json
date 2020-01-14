@@ -7,7 +7,7 @@
 		"node": "12.x"
 	},
 	"dependencies": {
-		"@projectwallace/css-analyzer": "^2.7.1",
+		"@projectwallace/css-analyzer": "projectwallace/css-analyzer#master",
 		"aws-sdk": "^2.603.0",
 		"filenamify-url": "^2.1.1",
 		"got": "^10.2.2",
