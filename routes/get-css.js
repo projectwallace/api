@@ -3,8 +3,13 @@ import getCss from "../src/get-css";
 
 export default cors()(async (req, res) => {
   const { url } = req.query;
-  const css = await getCss(url);
+  const result = await getCss(url);
 
+  if (req.headers.accept === "application/json") {
+    return res.json(result)
+  }
+
+  const css = result.map(({css}) => css).join('\n')
   res.setHeader("Content-Type", "text/css");
-  res.send(css);
+  return res.send(css);
 });

@@ -6,7 +6,11 @@ export default async url => {
 		stripProtocol: true,
 		stripWWW: true
 	})
-	const { body: css } = await got(`https://extract-css.now.sh/${normalizedUrl}`)
+	const { body } = await got(`https://extract-css.now.sh/${normalizedUrl}`, {
+		headers: {
+			Accept: 'application/json'
+		}
+	})
 
-	return Promise.resolve(css)
+	return Promise.resolve(JSON.parse(body))
 }
