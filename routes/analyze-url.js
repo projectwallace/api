@@ -5,14 +5,23 @@ import getCss from '../src/get-css'
 
 export default cors()(async (req, res) => {
 	try {
-		const { url } = req.query
-		const css = await getCss(url)
+		const { url, includeOrigins } = req.query
+		const result = await getCss(url)
+		const css = result.map(({css}) => css).join('\n')
 		const stats = await analyzeCss(css)
 		res.setHeader(
 			'x-css-analyzer-version',
 			pkg.dependencies['@projectwallace/css-analyzer']
 		)
-		res.json(stats)
+
+		if (includeOrigins && includeOrigins === 'include') {
+			return res.json({
+				stats,
+				origins: result
+			})
+		}
+
+		return res.json(stats)
 	} catch (error) {
 		if (error.name === 'SyntaxError') {
 			return res.status(400).json({
