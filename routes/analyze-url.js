@@ -17,7 +17,7 @@ export default cors()(async (req, res) => {
 		if (includeOrigins && includeOrigins === 'include') {
 			return res.json({
 				stats,
-				result
+				origins: result
 			})
 		}
 
