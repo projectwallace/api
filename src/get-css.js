@@ -6,7 +6,7 @@ export default async url => {
 		stripProtocol: true,
 		stripWWW: true
 	})
-	const { body } = await got(`https://extract-css.now.sh/${normalizedUrl}`, {
+	const { body } = await got(`https://extract-css.vercel.app/${normalizedUrl}`, {
 		headers: {
 			Accept: 'application/json'
 		}
